@@ -10,7 +10,3 @@ output "Login-worker" {
   value = "ssh -i ${aws_key_pair.keypair1.key_name} ubuntu@${aws_instance.ec2-worker.public_ip}"
 }
 
-output "azs" {
-  value = data.aws_availability_zones.azs.*.names
-}
-
