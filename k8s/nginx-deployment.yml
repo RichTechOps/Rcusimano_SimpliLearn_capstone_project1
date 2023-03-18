@@ -2,7 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-dply
+  namespace: nginx-cap1
   labels:
     app: project1
 spec:
@@ -12,11 +13,17 @@ spec:
       app: project1
   template:
     metadata:
-      name: nginx-pod
+      name: nginx-dply
       labels:
         app: project1
     spec:
       containers:
         - name: nginxapp
           image: nginx:latest
+          ports:
+          - containerPort: 80
+            name: nginxapp
+          resources:
+             limits:
+               cpu: 200m
 
